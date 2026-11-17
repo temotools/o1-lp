@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Adults-only gateway to live cam rooms on Chaturbate. 18+ only. This page contains affiliate advertising — see disclosure." />
+    <meta name="rating" content="adult" />
+    <link rel="icon" href="data:," />
+    <title>After Dark — Live Cams (18+)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f4f1ec;
+        --bg-raised: #ffffff;
+        --ink: #17130f;
+        --ink-soft: #57493c;
+        --ink-faint: #8a7a68;
+        --line: #ddd3c4;
+        --accent: #b3231b;
+        --accent-ink: #ffffff;
+        --accent-soft: #f6e3dd;
+        --gate-bg: #14100d;
+        --gate-ink: #f4efe8;
+        --gate-soft: #b8ab9c;
+        --gate-line: #3a322a;
+        --shadow: 0 18px 40px rgba(23, 19, 15, 0.10);
+        --radius: 14px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #12100d;
+          --bg-raised: #1c1814;
+          --ink: #f2ede6;
+          --ink-soft: #c4b7a6;
+          --ink-faint: #8d7f6e;
+          --line: #332c24;
+          --accent: #e2483d;
+          --accent-ink: #ffffff;
+          --accent-soft: #33201c;
+          --gate-bg: #0b0908;
+          --gate-ink: #f4efe8;
+          --gate-soft: #b3a593;
+          --gate-line: #2e2822;
+          --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-size: 16px;
+        line-height: 1.55;
+      }
+      .mono {
+        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      a { color: inherit; }
+      button, a.btn { min-height: 48px; }
+      :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+      /* ============ Layout ============ */
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+      main[hidden] { display: none; }
+      section.block { padding: 44px 0 8px; }
+      .block-head { margin-bottom: 22px; }
+      .block-head h2 { margin: 0 0 6px; font-size: 1.35rem; font-weight: 800; letter-spacing: -0.01em; }
+      .block-head p { margin: 0; color: var(--ink-soft); max-width: 68ch; }
+
+      /* ============ Ad notice strip ============ */
+      .ad-notice {
+        border-bottom: 1px solid var(--line);
+        padding: 12px 0;
+        display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline;
+        color: var(--ink-soft); font-size: 0.88rem;
+      }
+      .ad-notice .mono { color: var(--accent); flex-shrink: 0; }
+      .ad-notice a { text-decoration: underline; text-underline-offset: 3px; }
+
+      /* ============ Hero (post-gate) ============ */
+      .hero { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+      .hero .kicker-row {
+        display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center;
+        color: var(--accent); margin-bottom: 22px;
+      }
+      .hero .kicker-row .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+      .hero .kicker-row span:last-child { color: var(--ink-faint); }
+      .hero h1 {
+        margin: 0 0 18px;
+        font-size: clamp(2.6rem, 7.5vw, 4.6rem);
+        font-weight: 900;
+        line-height: 0.98;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+      }
+      .hero h1 em { font-style: normal; color: var(--accent); }
+      .hero p.lede {
+        margin: 0; max-width: 56ch;
+        font-size: clamp(1.02rem, 2.4vw, 1.2rem);
+        color: var(--ink-soft);
+      }
+      .hero .facts {
+        display: flex; flex-wrap: wrap; gap: 8px 28px;
+        margin-top: 28px; color: var(--ink-faint);
+      }
+      .hero .facts .mono { display: inline-flex; align-items: center; gap: 8px; }
+      .hero .facts .mono::before { content: ""; width: 14px; height: 1px; background: var(--accent); }
+      .hero .hero-cta { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+      .btn-primary {
+        display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+        padding: 14px 26px;
+        background: var(--accent); color: var(--accent-ink);
+        font-weight: 700; font-size: 1rem; text-decoration: none;
+        border-radius: 9px;
+        transition: filter 0.15s ease, transform 0.15s ease;
+      }
+      .btn-primary:hover { filter: brightness(1.1); }
+      .btn-primary:active { transform: translateY(1px); }
+      .hero .hero-cta .hint { color: var(--ink-faint); font-size: 0.88rem; }
+
+      /* ============ Conditions ============ */
+      .conditions {
+        background: var(--bg-raised);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 8px 26px;
+      }
+      .conditions dl { margin: 0; }
+      .conditions .row {
+        display: grid; gap: 4px 24px; grid-template-columns: 1fr;
+        padding: 18px 0; border-bottom: 1px solid var(--line);
+      }
+      .conditions .row:last-child { border-bottom: none; }
+      @media (min-width: 760px) {
+        .conditions .row { grid-template-columns: 220px 1fr; }
+      }
+      .conditions dt { font-weight: 800; font-size: 0.98rem; }
+      .conditions dd { margin: 0; color: var(--ink-soft); font-size: 0.97rem; }
+      .conditions dd strong { color: var(--ink); }
+
+      /* ============ Trust / about ============ */
+      .trust {
+        margin-top: 20px; padding: 22px 24px;
+        border: 1px dashed var(--line);
+        border-radius: var(--radius);
+      }
+      .trust .mono { color: var(--accent); display: block; margin-bottom: 10px; }
+      .trust p { margin: 0 0 10px; font-size: 0.95rem; color: var(--ink-soft); max-width: 72ch; }
+      .trust p:last-child { margin-bottom: 0; }
+      .trust p strong { color: var(--ink); }
+
+      /* ============ Cards ============ */
+      .cards-head {
+        display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+        gap: 6px 20px; margin-bottom: 22px;
+      }
+      .cards-head h2 { margin: 0; font-size: 1.35rem; font-weight: 800; letter-spacing: -0.01em; }
+      .cards-head .mono { color: var(--ink-faint); }
+      .cards {
+        display: grid; gap: 16px;
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 760px) {
+        .cards { grid-template-columns: repeat(3, 1fr); }
+      }
+      .card {
+        display: flex; flex-direction: column;
+        background: var(--bg-raised);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 26px 24px 24px;
+        box-shadow: var(--shadow);
+      }
+      .card .num {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 0.78rem; letter-spacing: 0.12em;
+        color: var(--accent); margin-bottom: 26px;
+        display: flex; justify-content: space-between; align-items: center;
+      }
+      .card .num .tag {
+        color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.68rem;
+      }
+      .card h3 { margin: 0 0 10px; font-size: 1.42rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; }
+      .card p { margin: 0 0 14px; color: var(--ink-soft); font-size: 0.97rem; }
+      .card .cost {
+        margin: 0 0 22px; padding-top: 12px; border-top: 1px solid var(--line);
+        font-size: 0.86rem; color: var(--ink-faint); flex: 1;
+      }
+      .card .cost strong { color: var(--ink-soft); font-weight: 700; }
+      .card .btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+        padding: 13px 20px;
+        background: var(--accent); color: var(--accent-ink);
+        font-weight: 700; font-size: 0.98rem; text-decoration: none;
+        border-radius: 9px;
+        transition: filter 0.15s ease, transform 0.15s ease;
+      }
+      .card .btn:hover { filter: brightness(1.1); }
+      .card .btn:active { transform: translateY(1px); }
+      .card .btn .arrow { font-weight: 400; }
+      .card.featured { border-color: var(--accent); }
+      .card.featured .btn { background: var(--ink); color: var(--bg); }
+      @media (prefers-color-scheme: dark) {
+        .card.featured .btn { background: var(--ink); color: #17130f; }
+      }
+
+      /* ============ FAQ ============ */
+      .faq details {
+        background: var(--bg-raised);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        margin-bottom: 12px;
+        padding: 0 22px;
+      }
+      .faq summary {
+        cursor: pointer; padding: 18px 0;
+        font-weight: 700; font-size: 1rem;
+        list-style-position: outside;
+      }
+      .faq details p { margin: 0 0 18px; color: var(--ink-soft); font-size: 0.96rem; max-width: 70ch; }
+      .faq details p strong { color: var(--ink); }
+
+      /* ============ Disclosure ============ */
+      .disclosure-box {
+        padding: 24px 26px;
+        background: var(--accent-soft);
+        border-radius: var(--radius);
+      }
+      .disclosure-box .mono { color: var(--accent); display: block; margin-bottom: 10px; }
+      .disclosure-box p { margin: 0 0 10px; font-size: 0.96rem; color: var(--ink-soft); max-width: 72ch; }
+      .disclosure-box p:last-child { margin-bottom: 0; }
+      .disclosure-box p strong { color: var(--ink); }
+
+      /* ============ Final CTA ============ */
+      .final-cta {
+        margin-top: 48px; padding: 40px 26px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--bg-raised);
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+      .final-cta h2 { margin: 0 0 10px; font-size: 1.6rem; font-weight: 800; letter-spacing: -0.01em; }
+      .final-cta p { margin: 0 auto 24px; color: var(--ink-soft); max-width: 52ch; }
+      .final-cta .alt { margin-top: 18px; font-size: 0.92rem; color: var(--ink-faint); }
+      .final-cta .alt a { text-decoration: underline; text-underline-offset: 3px; }
+
+      /* ============ Footer ============ */
+      footer { margin-top: 56px; border-top: 1px solid var(--line); padding: 36px 0 48px; }
+      footer .cols { display: grid; gap: 28px; grid-template-columns: 1fr; }
+      @media (min-width: 760px) { footer .cols { grid-template-columns: 1.3fr 1fr; gap: 48px; } }
+      footer h2 { margin: 0 0 10px; font-size: 0.95rem; font-weight: 800; }
+      footer p { margin: 0 0 10px; font-size: 0.88rem; color: var(--ink-soft); }
+      footer p:last-child { margin-bottom: 0; }
+      footer .fineprint {
+        margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--line);
+        display: flex; flex-wrap: wrap; gap: 6px 24px; justify-content: space-between;
+        color: var(--ink-faint);
+      }
+
+      /* ============ Age gate ============ */
+      .gate {
+        position: fixed; inset: 0; z-index: 50;
+        background: var(--gate-bg); color: var(--gate-ink);
+        overflow-y: auto;
+        display: flex; align-items: center; justify-content: center;
+        padding: 32px 20px;
+      }
+      .gate[hidden] { display: none; }
+      .gate-inner { max-width: 560px; width: 100%; text-align: left; }
+      .gate .badge {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 84px; height: 84px; border-radius: 50%;
+        border: 3px solid var(--accent);
+        font-size: 1.55rem; font-weight: 900; letter-spacing: -0.02em;
+        color: var(--gate-ink);
+        margin-bottom: 28px;
+      }
+      .gate .badge sup { font-size: 0.85rem; margin-left: 1px; }
+      .gate .mono { color: var(--accent); display: block; margin-bottom: 14px; }
+      .gate h1 {
+        margin: 0 0 14px;
+        font-size: clamp(2rem, 6.5vw, 3rem);
+        font-weight: 900; line-height: 1.02; letter-spacing: -0.02em;
+      }
+      .gate p { margin: 0 0 12px; color: var(--gate-soft); font-size: 1rem; max-width: 48ch; }
+      .gate p strong { color: var(--gate-ink); }
+      .gate-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 30px; }
+      @media (min-width: 520px) { .gate-actions { flex-direction: row; } }
+      .gate .btn-enter {
+        flex: 1;
+        display: inline-flex; align-items: center; justify-content: center;
+        padding: 15px 24px; border: none; cursor: pointer;
+        background: var(--accent); color: #fff;
+        font-family: inherit; font-size: 1.02rem; font-weight: 700;
+        border-radius: 9px;
+      }
+      .gate .btn-enter:hover { filter: brightness(1.12); }
+      .gate .btn-exit {
+        display: inline-flex; align-items: center; justify-content: center;
+        padding: 15px 24px;
+        background: transparent; color: var(--gate-soft);
+        border: 1px solid var(--gate-line);
+        font-size: 1.02rem; font-weight: 600; text-decoration: none;
+        border-radius: 9px; cursor: pointer; font-family: inherit;
+      }
+      .gate .btn-exit:hover { color: var(--gate-ink); border-color: var(--gate-soft); }
+      .gate .legal { margin-top: 26px; font-size: 0.8rem; color: var(--gate-soft); max-width: 52ch; }
+      .gate .denied {
+        margin-top: 26px; padding: 16px 18px;
+        border: 1px solid var(--accent); border-radius: 9px;
+        color: var(--gate-ink); font-size: 0.95rem;
+      }
+      .gate .denied[hidden] { display: none; }
+      body.gated { overflow: hidden; }
+    </style>
+  </head>
+  <body class="gated">
+
+    <!-- ================= AGE GATE ================= -->
+    <div class="gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+      <div class="gate-inner">
+        <div class="badge" aria-hidden="true">18<sup>+</sup></div>
+        <span class="mono">Adults only — age verification</span>
+        <h1 id="gateTitle">This page is for adults only.</h1>
+        <p>
+          The links beyond this point lead to <strong>Chaturbate</strong>, a live webcam
+          platform containing sexually explicit material intended for adults.
+        </p>
+        <p>
+          To continue, confirm that you are <strong>at least 18 years old</strong>
+          (or the age of majority in your jurisdiction, if higher) and that viewing
+          adult content is legal where you are.
+        </p>
+        <div class="gate-actions">
+          <button type="button" class="btn-enter" id="enterBtn">I am 18 or older — Enter</button>
+          <button type="button" class="btn-exit" id="exitBtn">I am under 18 — Exit</button>
+        </div>
+        <p class="denied" id="deniedMsg" hidden>
+          Sorry — you must be 18 or older to view this page. Please close this tab.
+        </p>
+        <p class="legal">
+          By entering, you confirm the statement above. This page itself contains no
+          explicit imagery; all content is hosted by the third-party platform the
+          links point to.
+        </p>
+      </div>
+    </div>
+
+    <!-- ================= CONTENT (revealed after the gate) ================= -->
+    <main id="content" hidden>
+      <div class="wrap">
+
+        <!-- Ad notice: shown at the very top, before any button -->
+        <div class="ad-notice">
+          <span class="mono">Ad</span>
+          <span>
+            This page contains affiliate advertising for Chaturbate and Stripchat. The operator may earn
+            a commission if you sign up or spend via the links — details in the
+            <a href="#disclosure">disclosure</a>.
+          </span>
+        </div>
+
+        <section class="hero">
+          <div class="kicker-row">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="mono">Adults 18+</span>
+            <span class="mono">Destinations: Chaturbate &amp; Stripchat</span>
+          </div>
+          <h1>Live cams,<br />straight to the <em>good rooms.</em></h1>
+          <p class="lede">
+            Four ways in, depending on what you came for: browse the full directory of
+            live rooms, jump straight to a featured room, sign up to broadcast
+            yourself, or try a second platform, Stripchat. The buttons on this page
+            open Chaturbate or Stripchat in a new tab — the costs and conditions are
+            spelled out below, before you click.
+          </p>
+          <div class="facts">
+            <span class="mono">Free to browse public rooms</span>
+            <span class="mono">No account needed to watch</span>
+            <span class="mono">18+ only</span>
+          </div>
+          <div class="hero-cta">
+            <a class="btn-primary" id="heroCta" href="#" target="_blank" rel="sponsored noopener noreferrer">Browse live cams <span aria-hidden="true">→</span></a>
+            <span class="hint">Free to watch · Opens chaturbate.com</span>
+          </div>
+        </section>
+
+        <!-- Costs, conditions and destination — before the entrance cards -->
+        <section class="block" aria-labelledby="conditionsTitle">
+          <div class="block-head">
+            <h2 id="conditionsTitle">Costs &amp; conditions, up front</h2>
+            <p>
+              Everything on this page leads to two third-party platforms. Here is what
+              applies before you choose a door — no surprises after the click.
+            </p>
+          </div>
+          <div class="conditions">
+            <dl>
+              <div class="row">
+                <dt>Where the links go</dt>
+                <dd>
+                  Buttons open <strong>Chaturbate (chaturbate.com)</strong> or
+                  <strong>Stripchat (stripchat.com)</strong> in a new tab. This page hosts
+                  no streams, has no accounts or sign-up forms, and never takes payments.
+                </dd>
+              </div>
+              <div class="row">
+                <dt>Watching</dt>
+                <dd>
+                  <strong>Public rooms are free to watch.</strong> You do not need an
+                  account or a payment to browse the directory and view public shows.
+                </dd>
+              </div>
+              <div class="row">
+                <dt>Optional spending</dt>
+                <dd>
+                  Tipping performers and private shows are <strong>optional extras, paid
+                  in tokens</strong> that you buy from the platform in packages — you only
+                  pay if you choose to. Token package prices are shown on the platform
+                  before you buy; check the current prices there.
+                </dd>
+              </div>
+              <div class="row">
+                <dt>No subscription from here</dt>
+                <dd>
+                  This page sells nothing and signs you up for nothing. Any account,
+                  token purchase, or payment is made <strong>directly with the
+                  platform</strong>, under its terms.
+                </dd>
+              </div>
+              <div class="row">
+                <dt>Broadcasting</dt>
+                <dd>
+                  Signing up as a broadcaster is <strong>free</strong> on both platforms.
+                  How earnings are calculated and paid out is set by each platform's own
+                  terms, shown during sign-up.
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="trust">
+            <span class="mono">About this page</span>
+            <p>
+              <strong>After Dark is an independent affiliate referral page.</strong> It is
+              not operated by, or part of, either platform; the operator takes part in
+              both platforms' affiliate programs (see the <a href="#disclosure">disclosure</a>).
+            </p>
+            <p>
+              The descriptions on this page are based on the platform's publicly
+              available information. <strong>We have not verified the service through
+              actual use</strong> — the operator has not made purchases, tipped, or tested
+              private shows — so treat the summary above as a guide and confirm the
+              current terms on Chaturbate itself before spending anything.
+            </p>
+            <p>Page last reviewed: 18 November 2026.</p>
+          </div>
+        </section>
+
+        <section class="block" aria-labelledby="waysIn">
+          <div class="cards-head">
+            <h2 id="waysIn">Choose your way in</h2>
+            <span class="mono">Links open chaturbate.com or stripchat.com</span>
+          </div>
+          <!-- Cards are rendered from the SITE_CONFIG object in the script below.
+               To change a destination, edit the URLs there — nowhere else. -->
+          <div class="cards" id="cards"></div>
+        </section>
+
+        <section class="block faq" aria-labelledby="faqTitle">
+          <div class="block-head">
+            <h2 id="faqTitle">Questions, answered honestly</h2>
+            <p>The practical details people usually want before clicking through.</p>
+          </div>
+
+          <details>
+            <summary>Is it really free to watch?</summary>
+            <p>
+              Yes — public rooms on both platforms can be viewed <strong>without paying and
+              without registering</strong>. Paid extras exist (tips and private shows),
+              but they are optional and entirely between you and the platform.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do I need an account?</summary>
+            <p>
+              Not to watch public rooms. To interact — chat, tip performers, or book a
+              private show — you will need a <strong>free account on the platform</strong>.
+              Broadcasting also starts with a free account.
+            </p>
+          </details>
+
+          <details>
+            <summary>How do payments work if I choose to spend?</summary>
+            <p>
+              Spending is done in <strong>tokens bought from the platform</strong> in
+              packages. All payment is processed by the platform: this page never sees,
+              asks for, or stores your payment details. Check the current token prices
+              and payment options on the platform before buying.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can I stop or cancel?</summary>
+            <p>
+              There is <strong>nothing to cancel with this page</strong> — it has no
+              accounts, subscriptions, or charges. Anything you set up on a platform
+              (an account, token purchases) is managed and closed on that platform
+              itself, under its terms and support channels.
+            </p>
+          </details>
+
+          <details>
+            <summary>What happens to my privacy?</summary>
+            <p>
+              This page has no forms and does not ask for personal or payment
+              information. Once you click through, anything you do is on Chaturbate and
+              covered by <strong>the destination platform's own privacy policy</strong> — worth a read
+              before you register or spend.
+            </p>
+          </details>
+
+          <details>
+            <summary>Who runs this page, and how does it make money?</summary>
+            <p>
+              An independent operator, through the platforms' affiliate programs. If you
+              sign up or spend after clicking a link here, the operator may earn a
+              commission from the platform at no extra cost to you. The full
+              <a href="#disclosure">disclosure is below</a>.
+            </p>
+          </details>
+        </section>
+
+        <section class="block" id="disclosure" aria-labelledby="disclosureTitle">
+          <div class="disclosure-box">
+            <span class="mono">Advertising disclosure</span>
+            <p>
+              <strong>This page is advertising.</strong> The links on this page are
+              affiliate links for Chaturbate and Stripchat. If you click through and sign up or spend
+              money on the destination site, <strong>the operator of this page may earn a
+              commission from the platform</strong>. This comes at no extra cost to you,
+              and it is how this page is funded.
+            </p>
+            <p>
+              This page is an independent referral page. It is not operated by, or
+              affiliated with, either platform beyond participation in their affiliate
+              programs, and the operator has no control over the content, performers, pricing, or
+              availability on the destination site.
+            </p>
+          </div>
+        </section>
+
+        <section class="final-cta" aria-labelledby="finalCtaTitle">
+          <h2 id="finalCtaTitle">Ready when you are</h2>
+          <p>
+            Public rooms are free to watch, no account needed. Links open
+            Chaturbate or Stripchat in a new tab.
+          </p>
+          <a class="btn-primary" id="finalCta" href="#" target="_blank" rel="sponsored noopener noreferrer">Browse live cams <span aria-hidden="true">→</span></a>
+          <p class="alt">
+            Rather be on camera? <a id="finalCtaAlt" href="#" target="_blank" rel="sponsored noopener noreferrer">Become a broadcaster</a> — free to join.
+          </p>
+        </section>
+
+        <footer>
+          <div class="cols">
+            <div>
+              <h2>Affiliate disclosure</h2>
+              <p>
+                The links on this page are affiliate links. If you click through and sign
+                up or spend money on the destination site, the operator of this page may
+                earn a commission from the platform. This comes at no extra cost to you,
+                and it is how this page is funded. See the full
+                <a href="#disclosure">disclosure above</a>.
+              </p>
+              <p>
+                This page is an independent referral page. It is not operated by, or
+                affiliated with, either platform beyond participation in their affiliate
+                programs, and the operator has no control over the content, performers,
+                pricing, or availability on the destination site.
+              </p>
+            </div>
+            <div>
+              <h2>Adults only — 18+</h2>
+              <p>
+                This page and every site it links to are strictly for adults aged 18 or
+                older, or the age of majority in your jurisdiction, whichever is higher.
+                If you are under that age, do not enter and do not follow the links.
+              </p>
+              <p>
+                All performers appearing on the destination platform are represented by
+                that platform as being 18 years of age or older. If adult content is
+                illegal in your location, please leave this page.
+              </p>
+            </div>
+          </div>
+          <div class="fineprint">
+            <span class="mono">After Dark — an affiliate referral page</span>
+            <span class="mono">18+ only · Affiliate links · See disclosure above</span>
+          </div>
+        </footer>
+
+      </div>
+    </main>
+
+    <script>
+      /* =====================================================================
+         SITE CONFIG — edit the affiliate links here, and only here.
+         Each entry in `links` becomes one card on the page, in order.
+         `featured: true` gives a card the highlighted style.
+         The hero and final CTA buttons reuse links[0] (and links[2] for the
+         broadcaster text link) so destinations live in exactly one place.
+         ===================================================================== */
+      var SITE_CONFIG = {
+        platform: "Chaturbate",
+        campaign: "smRiW",
+        links: [
+          {
+            id: "home",
+            tag: "Browse everything",
+            title: "Watch Live Cams",
+            description:
+              "The full Chaturbate directory: browse live rooms by category and open any public show that catches your eye.",
+            cost: "<strong>Free to watch</strong> · No account needed for public rooms",
+            cta: "Browse live cams",
+            url: "https://chaturbate.com/in/?tour=g4pe&campaign=smRiW&track=default"
+          },
+          {
+            id: "top-room",
+            tag: "Skip the browsing",
+            title: "Featured Room, Direct",
+            description:
+              "No scrolling, no searching. This link takes you straight to a featured room on Chaturbate instead of the directory.",
+            cost: "<strong>Free to watch</strong> · Same conditions as browsing",
+            cta: "Jump into the room",
+            url: "https://chaturbate.com/in/?tour=ZmU7&campaign=smRiW&track=default",
+            featured: true
+          },
+          {
+            id: "broadcast",
+            tag: "Earn instead",
+            title: "Become a Broadcaster",
+            description:
+              "Thinking about the other side of the camera? Sign up as a Chaturbate broadcaster and stream on your own schedule, on your own terms.",
+            cost: "<strong>Free to join</strong> · Earnings and payout terms are set by Chaturbate",
+            cta: "Start broadcasting",
+            url: "https://chaturbate.com/in/?tour=5zjT&campaign=smRiW&track=default"
+          },
+          {
+            id: "stripchat",
+            tag: "Another platform",
+            title: "Stripchat Live Cams",
+            description:
+              "Prefer a different room? Stripchat is a second live-cam platform with its own performers and public rooms — same idea, different crowd.",
+            cost: "<strong>Free to watch</strong> · No account needed for public rooms",
+            cta: "Open Stripchat",
+            url: "https://go.whitetrafsa.com?userId=9418954fb1eb0f1e0ff1a5f6c45feea435c8db6fd38c378429fc34bb18b0853d"
+          }
+        ]
+      };
+
+      /* ---------- Render the cards from the config ---------- */
+      (function renderCards() {
+        var container = document.getElementById("cards");
+        SITE_CONFIG.links.forEach(function (link, i) {
+          var card = document.createElement("article");
+          card.className = "card" + (link.featured ? " featured" : "");
+
+          var num = document.createElement("div");
+          num.className = "num";
+          var numText = document.createElement("span");
+          numText.textContent = "0" + (i + 1) + " / " + link.tag;
+          num.appendChild(numText);
+
+          var title = document.createElement("h3");
+          title.textContent = link.title;
+
+          var desc = document.createElement("p");
+          desc.textContent = link.description;
+
+          var cost = document.createElement("p");
+          cost.className = "cost";
+          cost.innerHTML = link.cost;
+
+          var btn = document.createElement("a");
+          btn.className = "btn";
+          btn.href = link.url;
+          btn.target = "_blank";
+          btn.rel = "sponsored noopener noreferrer";
+          var label = document.createElement("span");
+          label.textContent = link.cta;
+          var arrow = document.createElement("span");
+          arrow.className = "arrow";
+          arrow.setAttribute("aria-hidden", "true");
+          arrow.textContent = "→";
+          btn.appendChild(label);
+          btn.appendChild(arrow);
+
+          card.appendChild(num);
+          card.appendChild(title);
+          card.appendChild(desc);
+          card.appendChild(cost);
+          card.appendChild(btn);
+          container.appendChild(card);
+        });
+
+        /* Hero + final CTA reuse the directory link; the final section's
+           text link reuses the broadcaster link. */
+        document.getElementById("heroCta").href = SITE_CONFIG.links[0].url;
+        document.getElementById("finalCta").href = SITE_CONFIG.links[0].url;
+        document.getElementById("finalCtaAlt").href = SITE_CONFIG.links[2].url;
+      })();
+
+      /* ---------- Age gate ---------- */
+      (function ageGate() {
+        var gate = document.getElementById("ageGate");
+        var content = document.getElementById("content");
+        var enterBtn = document.getElementById("enterBtn");
+        var exitBtn = document.getElementById("exitBtn");
+        var deniedMsg = document.getElementById("deniedMsg");
+
+        enterBtn.focus();
+
+        enterBtn.addEventListener("click", function () {
+          gate.hidden = true;
+          content.hidden = false;
+          document.body.classList.remove("gated");
+          content.setAttribute("tabindex", "-1");
+          content.focus({ preventScroll: true });
+          window.scrollTo(0, 0);
+        });
+
+        exitBtn.addEventListener("click", function () {
+          deniedMsg.hidden = false;
+          enterBtn.disabled = true;
+          enterBtn.style.opacity = "0.45";
+          enterBtn.style.cursor = "not-allowed";
+          deniedMsg.setAttribute("tabindex", "-1");
+          deniedMsg.focus({ preventScroll: true });
+        });
+      })();
+    </script>
+  </body>
+</html>
